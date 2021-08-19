@@ -65,3 +65,11 @@ docker exec it lambda-rds bash
 ```bash
 mysql -proot -e'show status like "Threads_connected";'
 ```
+
+```
++-------------------+-------+
+| Variable_name     | Value |
++-------------------+-------+
+| Threads_connected | 1     |
++-------------------+-------+
+```
