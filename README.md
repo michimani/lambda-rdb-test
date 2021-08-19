@@ -48,7 +48,7 @@ curl "http://localhost:8002/2015-03-31/functions/function/invocations"
 
 This Lambda function closes the connection after each execution, so no matter how many times it is executed, the number of DB connections will not increase.
 
-### Function eeuses the DB connection
+### Function reuses the DB connection
 
 ```bash
 curl "http://localhost:8003/2015-03-31/functions/function/invocations"
