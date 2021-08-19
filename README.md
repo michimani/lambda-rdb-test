@@ -59,7 +59,7 @@ This Lambda function creates a DB connection only the first time it is started, 
 ## Check the number of DB connections
 
 ```bash
-docker exec it lambda-rds bash
+docker exec -it lambda-rdb bash
 ```
 
 ```bash
