@@ -16,12 +16,14 @@ type Response struct {
 }
 
 func handleRequest() (Response, error) {
+	// Create DB connection each invocation.
 	db, err := initDB()
 	if err != nil {
 		fmt.Println(err.Error())
 		return Response{Message: err.Error(), StatusCode: http.StatusInternalServerError}, err
 	}
 
+	// Close DB connection at end of each invocation.
 	defer db.Close()
 
 	title, err := getTitle(db)

@@ -15,9 +15,11 @@ type Response struct {
 	StatusCode int    `json:"statusCode"`
 }
 
+// Define the DB connection as a global variable.
 var db *sql.DB
 
 func handleRequest() (Response, error) {
+	// Create a DB connection only if it is nil.
 	if db == nil || db.Ping() != nil {
 		d, err := initDB()
 		if err != nil {

@@ -16,6 +16,7 @@ type Response struct {
 }
 
 func handleRequest() (Response, error) {
+	// Create DB connection each invocation, and do not close it.
 	db, err := initDB()
 	if err != nil {
 		fmt.Println(err.Error())

@@ -11,6 +11,19 @@ In this repository, you can try to see how the number of DB connections changes 
 docker-compose up -d
 ```
 
+```bash
+docker-compose ps
+```
+
+```
+      Name                    Command             State                          Ports                       
+-------------------------------------------------------------------------------------------------------------
+lambda-rdb          docker-entrypoint.sh mysqld   Up      0.0.0.0:8000->3306/tcp,:::8000->3306/tcp, 33060/tcp
+lambda-rdb-func-1   /entry.sh /main               Up      0.0.0.0:8001->8080/tcp,:::8001->8080/tcp           
+lambda-rdb-func-2   /entry.sh /main               Up      0.0.0.0:8002->8080/tcp,:::8002->8080/tcp           
+lambda-rdb-func-3   /entry.sh /main               Up      0.0.0.0:8003->8080/tcp,:::8003->8080/tcp
+```
+
 ## Invoke Lambda functions
 
 ### Function does not explicitly close the DB connection
