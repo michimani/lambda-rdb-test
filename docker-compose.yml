@@ -1,0 +1,34 @@
+version: "3"
+services:
+  lambda1:
+    build: ./lambda-not-close-db
+    container_name: lambda-rdb-func-1
+    ports:
+      - "8001:8080"
+    environment:
+      - DB_DATABASE=lambda_rdb
+      - DB_USER=root
+      - DB_PASS=root
+  lambda2:
+    build: ./lambda-close-db
+    container_name: lambda-rdb-func-2
+    ports:
+      - "8002:8080"
+    environment:
+      - DB_DATABASE=lambda_rdb
+      - DB_USER=root
+      - DB_PASS=root
+  lambda3:
+    build: ./lambda-reuse-db
+    container_name: lambda-rdb-func-3
+    ports:
+      - "8003:8080"
+    environment:
+      - DB_DATABASE=lambda_rdb
+      - DB_USER=root
+      - DB_PASS=root
+  db:
+    build: ./mysql
+    container_name: lambda-rdb
+    ports:
+      - "8000:3306"
